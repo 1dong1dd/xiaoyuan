@@ -1,5 +1,5 @@
-const CACHE = 'xiaoyuan-v3';
-const FILES = ['/xiaoyuan/index.html','/xiaoyuan/manifest.json'];
+const CACHE = 'xiaoyuan-v4';
+const FILES = ['/xiaoyuan/index.html','/xiaoyuan/manifest.json','/xiaoyuan/sw.js'];
 
 self.addEventListener('install', e => {
   e.waitUntil(
