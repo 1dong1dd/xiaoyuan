@@ -5,12 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="小院">
-<meta name="theme-color" content="#6B3FA0">
+<meta name="apple-mobile-web-app-title" content="灏忛櫌">
+<meta name="theme-color" content="#3c096c">
 <meta name="mobile-web-app-capable" content="yes">
 <link rel="manifest" href="manifest.json">
-<link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'><stop offset='0%25' style='stop-color:%23c77dff'/><stop offset='100%25' style='stop-color:%235a189a'/></linearGradient></defs><rect fill='url(%23g)' width='100' height='100' rx='20'/><text x='50' y='72' text-anchor='middle' font-size='60'>🖤</text></svg>">
-<title>小院的小窝</title>
+<link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><defs><linearGradient id='bg' x1='0%25' y1='0%25' x2='100%25' y2='100%25'><stop offset='0%25' style='stop-color:%23c77dff'/><stop offset='100%25' style='stop-color:%233c096c'/></linearGradient><radialGradient id='face' cx='50%25' cy='55%25' r='35%25'><stop offset='0%25' style='stop-color:%23ffffff'/><stop offset='100%25' style='stop-color:%23f0e8f8'/></radialGradient></defs><rect width='512' height='512' rx='115' fill='url(%23bg)'/><ellipse cx='256' cy='295' rx='115' ry='100' fill='url(%23face)'/><path d='M140 210 L256 80 L372 210 Q372 260 256 280 Q140 260 140 210Z' fill='%231a0a2e'/><ellipse cx='256' cy='210' rx='80' ry='30' fill='%232d1244'/><path d='M160 200 L140 100 Q138 70 160 85 L200 170Z' fill='%231a0a2e'/><path d='M352 200 L372 100 Q374 70 352 85 L312 170Z' fill='%231a0a2e'/><ellipse cx='256' cy='180' rx='30' ry='24' fill='%23ff85b3'/><circle cx='247' cy='177' r='5' fill='%23d63384'/><circle cx='265' cy='177' r='5' fill='%23d63384'/><line x1='249' y1='189' x2='263' y2='189' stroke='%23d63384' stroke-width='2.5' stroke-linecap='round'/><ellipse cx='226' cy='285' rx='14' ry='16' fill='%231a1a2e'/><ellipse cx='286' cy='285' rx='14' ry='16' fill='%231a1a2e'/><circle cx='231' cy='279' r='5' fill='white' opacity='0.6'/><circle cx='291' cy='279' r='5' fill='white' opacity='0.6'/><ellipse cx='256' cy='305' rx='5' ry='4' fill='%23ffb3c6'/><path d='M244 314 Q256 326 268 314' stroke='%231a1a2e' stroke-width='3' fill='none' stroke-linecap='round'/><ellipse cx='202' cy='298' rx='18' ry='12' fill='%23ffb3c6' opacity='0.35'/><ellipse cx='310' cy='298' rx='18' ry='12' fill='%23ffb3c6' opacity='0.35'/></svg>">
+<title>灏忛櫌鐨勫皬绐?/title>
 <style>
 :root {
   --safe-top: env(safe-area-inset-top, 0px);
@@ -21,7 +21,6 @@
   --primary-light: #c77dff;
   --primary-dark: #3c096c;
   --bg: #1a0533;
-  --bg-pattern: transparent;
   --card-bg: rgba(30,10,50,0.82);
   --text: #f0e6ff;
   --text-secondary: #c9b8e8;
@@ -32,7 +31,7 @@
   --shadow: 0 4px 24px rgba(100,20,180,0.2);
   --radius: 24px;
   --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
-  --bg-char: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Ccircle cx='100' cy='110' r='45' fill='%239b5de5' opacity='0.07'/%3E%3Ccircle cx='85' cy='95' r='8' fill='%23ff6b9d' opacity='0.06'/%3E%3Ccircle cx='115' cy='95' r='8' fill='%23ff6b9d' opacity='0.06'/%3E%3Cpath d='M60 60 Q100 20 140 60' stroke='%23c77dff' stroke-width='3' fill='none' opacity='0.08'/%3E%3Ccircle cx='60' cy='55' r='10' fill='%239b5de5' opacity='0.05'/%3E%3Ccircle cx='140' cy='55' r='10' fill='%239b5de5' opacity='0.05'/%3E%3C/svg%3E");
+  --bg-char: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 320'%3E%3Cdefs%3E%3CradialGradient id='fg' cx='50%25' cy='50%25' r='40%25'%3E%3Cstop offset='0%25' style='stop-color:%23f5f0ff'/%3E%3Cstop offset='100%25' style='stop-color:%23e8ddff'/%3E%3C/radialGradient%3E%3C/defs%3E%3C!--Ears/Hood--%3E%3Cpath d='M90 110 L120 30 Q125 10 135 35 L150 110Z' fill='%231a0a2e' opacity='0.12'/%3E%3Cpath d='M230 110 L200 30 Q195 10 185 35 L170 110Z' fill='%231a0a2e' opacity='0.12'/%3E%3C!--Hood--%3E%3Cellipse cx='160' cy='115' rx='105' ry='65' fill='%231a0a2e' opacity='0.12'/%3E%3C!--Face--%3E%3Cellipse cx='160' cy='145' rx='75' ry='62' fill='url(%23fg)' opacity='0.12'/%3E%3C!--Skull--%3E%3Cellipse cx='160' cy='100' rx='22' ry='18' fill='%23ff85b3' opacity='0.1'/%3E%3Ccircle cx='153' cy='98' r='3.5' fill='%23d63384' opacity='0.07'/%3E%3Ccircle cx='167' cy='98' r='3.5' fill='%23d63384' opacity='0.07'/%3E%3C!--Eyes--%3E%3Cellipse cx='135' cy='140' rx='10' ry='12' fill='%231a1a2e' opacity='0.1'/%3E%3Cellipse cx='185' cy='140' rx='10' ry='12' fill='%231a1a2e' opacity='0.1'/%3E%3Ccircle cx='139' cy='135' r='3.5' fill='white' opacity='0.06'/%3E%3Ccircle cx='189' cy='135' r='3.5' fill='white' opacity='0.06'/%3E%3C!--Mouth--%3E%3Cpath d='M150 155 Q160 164 170 155' stroke='%231a1a2e' stroke-width='2.5' fill='none' opacity='0.08' stroke-linecap='round'/%3E%3C!--Cheeks--%3E%3Cellipse cx='118' cy='148' rx='14' ry='9' fill='%23ffb3c6' opacity='0.06'/%3E%3Cellipse cx='202' cy='148' rx='14' ry='9' fill='%23ffb3c6' opacity='0.06'/%3E%3C!--Hearts--%3E%3Cpath d='M260 60 Q260 50 268 50 Q276 50 276 60 Q276 50 284 50 Q292 50 292 60 Q292 75 276 82 Q260 75 260 60Z' fill='%23c77dff' opacity='0.05'/%3E%3Cpath d='M50 240 Q50 230 58 230 Q66 230 66 240 Q66 230 74 230 Q82 230 82 240 Q82 255 66 262 Q50 255 50 240Z' fill='%23ff6b9d' opacity='0.04'/%3E%3C/svg%3E");
 }
 [data-theme="hellokitty"] {
   --primary: #FF69B4;
@@ -45,7 +44,7 @@
   --accent: #ff1493;
   --border: rgba(255,105,180,0.2);
   --shadow: 0 4px 24px rgba(255,105,180,0.12);
-  --bg-char: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Ccircle cx='100' cy='110' r='48' fill='%23ff69b4' opacity='0.06'/%3E%3Ccircle cx='82' cy='95' r='7' fill='%23333' opacity='0.04'/%3E%3Ccircle cx='118' cy='95' r='7' fill='%23333' opacity='0.04'/%3E%3Cellipse cx='100' cy='115' rx='6' ry='4' fill='%23ffb6d3' opacity='0.08'/%3E%3Cpath d='M60 50 L50 70 L70 70 Z' fill='%23ff1493' opacity='0.06'/%3E%3Cpath d='M140 50 L130 70 L150 70 Z' fill='%23ff1493' opacity='0.06'/%3E%3Ctext x='100' y='80' text-anchor='middle' font-size='14' fill='%23ff69b4' opacity='0.06'%3E🎀%3C/text%3E%3C/svg%3E");
+  --bg-char: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 320'%3E%3Cdefs%3E%3CradialGradient id='hface' cx='50%25' cy='50%25' r='50%25'%3E%3Cstop offset='0%25' style='stop-color:%23ffffff'/%3E%3Cstop offset='100%25' style='stop-color:%23ffe8f0'/%3E%3C/radialGradient%3E%3C/defs%3E%3C!--Ears--%3E%3Cpath d='M105 100 L95 40 L130 80Z' fill='%23fff0f5' opacity='0.15' stroke='%23ffb6d3' stroke-width='1' opacity='0.1'/%3E%3Cpath d='M215 100 L225 40 L190 80Z' fill='%23fff0f5' opacity='0.15' stroke='%23ffb6d3' stroke-width='1' opacity='0.1'/%3E%3C!--Face--%3E%3Cellipse cx='160' cy='155' rx='90' ry='80' fill='url(%23hface)' opacity='0.14' stroke='%23ffb6d3' stroke-width='1.5' opacity='0.08'/%3E%3C!--Bow--%3E%3Cpath d='M170 65 Q155 50 170 40 Q185 50 170 65Z' fill='%23ff1493' opacity='0.1'/%3E%3Ccircle cx='170' cy='53' r='6' fill='%23ff69b4' opacity='0.08'/%3E%3C!--Eyes--%3E%3Cellipse cx='135' cy='140' rx='8' ry='9' fill='%23111' opacity='0.1'/%3E%3Cellipse cx='185' cy='140' rx='8' ry='9' fill='%23111' opacity='0.1'/%3E%3C!--Nose--%3E%3Cellipse cx='160' cy='158' rx='7' ry='5' fill='%23ffcc00' opacity='0.1'/%3E%3C!--Whiskers--%3E%3Cline x1='100' y1='148' x2='128' y2='155' stroke='%23333' stroke-width='1.5' opacity='0.06'/%3E%3Cline x1='100' y1='162' x2='128' y2='160' stroke='%23333' stroke-width='1.5' opacity='0.06'/%3E%3Cline x1='100' y1='176' x2='128' y2='165' stroke='%23333' stroke-width='1.5' opacity='0.06'/%3E%3Cline x1='220' y1='148' x2='192' y2='155' stroke='%23333' stroke-width='1.5' opacity='0.06'/%3E%3Cline x1='220' y1='162' x2='192' y2='160' stroke='%23333' stroke-width='1.5' opacity='0.06'/%3E%3Cline x1='220' y1='176' x2='192' y2='165' stroke='%23333' stroke-width='1.5' opacity='0.06'/%3E%3C!--Flowers--%3E%3Ccircle cx='50' cy='50' r='12' fill='%23ffb6d3' opacity='0.06'/%3E%3Ccircle cx='50' cy='38' r='8' fill='%23ff69b4' opacity='0.04'/%3E%3Ccircle cx='42' cy='47' r='8' fill='%23ff69b4' opacity='0.04'/%3E%3Ccircle cx='58' cy='47' r='8' fill='%23ff69b4' opacity='0.04'/%3E%3Ccircle cx='270' cy='260' r='14' fill='%23ffb6d3' opacity='0.05'/%3E%3Ccircle cx='275' cy='248' r='9' fill='%23ff69b4' opacity='0.04'/%3E%3C/svg%3E");
 }
 [data-theme="cinnamoroll"] {
   --primary: #5BA4CF;
@@ -58,7 +57,7 @@
   --accent: #ffb8c6;
   --border: rgba(91,164,207,0.2);
   --shadow: 0 4px 24px rgba(91,164,207,0.12);
-  --bg-char: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Ccircle cx='100' cy='110' r='42' fill='white' opacity='0.08'/%3E%3Ccircle cx='82' cy='98' r='6' fill='%23333' opacity='0.04'/%3E%3Ccircle cx='118' cy='98' r='6' fill='%23333' opacity='0.04'/%3E%3Cellipse cx='100' cy='120' rx='5' ry='3' fill='%237ab8e0' opacity='0.06'/%3E%3Ccircle cx='70' cy='55' r='15' fill='white' opacity='0.06'/%3E%3Ccircle cx='130' cy='50' r='18' fill='white' opacity='0.05'/%3E%3Ccircle cx='50' cy='70' r='12' fill='white' opacity='0.04'/%3E%3Ccircle cx='150' cy='65' r='14' fill='white' opacity='0.04'/%3E%3Ctext x='100' y='72' text-anchor='middle' font-size='14' fill='%235BA4CF' opacity='0.05'%3E☁️%3C/text%3E%3C/svg%3E");
+  --bg-char: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 320'%3E%3Cdefs%3E%3CradialGradient id='cface' cx='50%25' cy='50%25' r='50%25'%3E%3Cstop offset='0%25' style='stop-color:%23ffffff'/%3E%3Cstop offset='100%25' style='stop-color:%23e0f0ff'/%3E%3C/radialGradient%3E%3C/defs%3E%3C!--Ears--%3E%3Cellipse cx='105' cy='70' rx='22' ry='40' fill='url(%23cface)' opacity='0.14' stroke='%23a8d8f0' stroke-width='1' opacity='0.08' transform='rotate(-20 105 70)'/%3E%3Cellipse cx='215' cy='70' rx='22' ry='40' fill='url(%23cface)' opacity='0.14' stroke='%23a8d8f0' stroke-width='1' opacity='0.08' transform='rotate(20 215 70)'/%3E%3C!--Face--%3E%3Cellipse cx='160' cy='155' rx='80' ry='72' fill='url(%23cface)' opacity='0.14' stroke='%23a8d8f0' stroke-width='1.5' opacity='0.08'/%3E%3C!--Eyes--%3E%3Cellipse cx='135' cy='140' rx='9' ry='11' fill='%233a7ca8' opacity='0.1'/%3E%3Cellipse cx='185' cy='140' rx='9' ry='11' fill='%233a7ca8' opacity='0.1'/%3E%3Ccircle cx='139' cy='136' r='3.5' fill='white' opacity='0.05'/%3E%3Ccircle cx='189' cy='136' r='3.5' fill='white' opacity='0.05'/%3E%3C!--Mouth--%3E%3Cellipse cx='160' cy='162' rx='6' ry='4' fill='%23ffb8c6' opacity='0.08'/%3E%3C!--Cheeks--%3E%3Cellipse cx='112' cy='152' rx='15' ry='10' fill='%23ffb8c6' opacity='0.07'/%3E%3Cellipse cx='208' cy='152' rx='15' ry='10' fill='%23ffb8c6' opacity='0.07'/%3E%3C!--Cloud--%3E%3Cpath d='M240 40 Q245 25 260 20 Q275 15 285 25 Q300 20 305 35 Q315 45 305 55 Q315 65 300 70 L245 70 Q230 70 230 58 Q225 45 240 40Z' fill='white' opacity='0.08'/%3E%3Ccircle cx='60' cy='270' r='16' fill='white' opacity='0.06'/%3E%3Ccircle cx='75' cy='265' r='12' fill='white' opacity='0.05'/%3E%3Ccircle cx='48' cy='262' r='10' fill='white' opacity='0.05'/%3E%3C!--Stars--%3E%3Cpath d='M280 280 L283 288 L291 288 L285 293 L287 301 L280 296 L273 301 L275 293 L269 288 L277 288Z' fill='%235BA4CF' opacity='0.05'/%3E%3C/svg%3E");
 }
 * { margin:0; padding:0; box-sizing:border-box; }
 html { font-size:16px; -webkit-tap-highlight-color:transparent; }
@@ -66,7 +65,7 @@ body {
   font-family:var(--font);
   background: var(--bg);
   background-image: var(--bg-char);
-  background-size: 400px 400px;
+  background-size: 350px 350px;
   background-repeat: repeat;
   color:var(--text);
   min-height:100vh;
@@ -86,8 +85,8 @@ body::before {
 }
 .container { max-width:600px; margin:0 auto; position:relative; z-index:1; }
 h1 {
-  text-align:center; font-size:1.4rem; font-weight:700;
-  padding:14px 0 6px; letter-spacing:0.04em;
+  text-align:center; font-size:1.5rem; font-weight:700;
+  padding:16px 0 8px; letter-spacing:0.04em;
 }
 h1 small { display:block; font-size:0.72rem; color:var(--text-secondary); font-weight:400; margin-top:3px; }
 
@@ -146,8 +145,35 @@ h1 small { display:block; font-size:0.72rem; color:var(--text-secondary); font-w
 .alert-item.warn { background:rgba(255,152,0,0.12); }
 .alert-item.danger { background:rgba(244,67,54,0.1); }
 .alert-item.info { background:rgba(33,150,243,0.08); }
+
+/* Hourly Forecast */
+.hourly-label {
+  font-size:0.82rem; color:var(--text-secondary); margin:14px 0 6px;
+  display:flex; align-items:center; gap:6px;
+}
+.hourly-row {
+  display:flex; gap:6px; overflow-x:auto; padding-bottom:6px;
+  -webkit-overflow-scrolling:touch; scroll-behavior:smooth;
+}
+.hourly-item {
+  flex:0 0 auto; text-align:center; padding:8px 10px;
+  border-radius:16px; background:rgba(128,128,128,0.06);
+  min-width:62px;
+}
+.hourly-item .h-time { font-size:0.68rem; color:var(--text-secondary); }
+.hourly-item .h-icon { font-size:1.3rem; margin:3px 0; }
+.hourly-item .h-temp { font-weight:700; font-size:0.85rem; }
+.hourly-item .h-rain { font-size:0.64rem; color:var(--primary); }
+.hourly-item.now {
+  background:var(--primary); color:#fff;
+}
+.hourly-item.now .h-time, .hourly-item.now .h-rain { color:rgba(255,255,255,0.75); }
+
+/* Multi-day Forecast */
+.forecast-section { margin-top:14px; }
+.forecast-label { font-size:0.82rem; color:var(--text-secondary); margin-bottom:6px; }
 .forecast-row {
-  display:flex; gap:8px; margin-top:14px; overflow-x:auto;
+  display:flex; gap:6px; overflow-x:auto;
   padding-bottom:4px; -webkit-overflow-scrolling:touch;
 }
 .forecast-day {
@@ -155,10 +181,11 @@ h1 small { display:block; font-size:0.72rem; color:var(--text-secondary); font-w
   border-radius:18px; background:rgba(128,128,128,0.06);
   min-width:72px;
 }
-.forecast-day .day-label { font-size:0.72rem; color:var(--text-secondary); }
+.forecast-day .day-label { font-size:0.7rem; color:var(--text-secondary); }
 .forecast-day .day-icon { font-size:1.6rem; margin:4px 0; }
 .forecast-day .day-temp { font-weight:700; font-size:0.92rem; }
 .forecast-day .day-low { color:var(--text-secondary); font-size:0.78rem; }
+.forecast-day .day-rain { font-size:0.64rem; color:var(--primary); }
 
 /* Quote */
 .quote-card { text-align:center; }
@@ -246,45 +273,50 @@ h1 small { display:block; font-size:0.72rem; color:var(--text-secondary); font-w
 <div class="container">
 
 <div class="install-banner" id="installBanner">
-  <span>📱 安装到主屏幕：Safari分享按钮 ➕ 添加到主屏幕</span>
-  <button onclick="closeBanner()">✕</button>
+  <span>馃摫 娣诲姞鍒颁富灞忓箷锛屽儚App涓€鏍蜂娇鐢?/span>
+  <button onclick="closeBanner()">鉁?/button>
 </div>
 
-<h1>小院的小窝 <small>🖤 每一天都陪着你</small></h1>
+<h1>灏忛櫌鐨勫皬绐?<small>馃枻 姣忎竴澶╅兘闄潃浣?/small></h1>
 
 <div class="theme-tabs">
-  <button class="theme-tab active" data-theme="kuromi" onclick="setTheme('kuromi')">🖤 库洛米</button>
-  <button class="theme-tab" data-theme="hellokitty" onclick="setTheme('hellokitty')">🎀 凯蒂猫</button>
-  <button class="theme-tab" data-theme="cinnamoroll" onclick="setTheme('cinnamoroll')">🐶 玉桂狗</button>
+  <button class="theme-tab active" data-theme="kuromi" onclick="setTheme('kuromi')">馃枻 搴撴礇绫?/button>
+  <button class="theme-tab" data-theme="hellokitty" onclick="setTheme('hellokitty')">馃巰 鍑拏鐚?/button>
+  <button class="theme-tab" data-theme="cinnamoroll" onclick="setTheme('cinnamoroll')">馃惗 鐜夋鐙?/button>
 </div>
 
 <div class="card" id="weatherCard">
   <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
-    <strong style="font-size:1rem">📍 广州 · 实时天气</strong>
+    <strong style="font-size:1rem">馃搷 骞垮窞 路 瀹炴椂澶╂皵</strong>
     <span style="font-size:0.75rem;color:var(--text-secondary)" id="weatherTime"></span>
   </div>
   <div class="weather-main">
-    <div class="weather-temp" id="wTemp">--°</div>
+    <div class="weather-temp" id="wTemp">--掳</div>
     <div class="weather-info">
-      <div class="weather-desc" id="wDesc">加载中...</div>
+      <div class="weather-desc" id="wDesc">鍔犺浇涓?..</div>
       <div class="weather-detail" id="wDetail"></div>
     </div>
   </div>
   <div class="weather-alerts" id="wAlerts"></div>
-  <div class="forecast-row" id="forecastRow"></div>
+  <div class="hourly-label">鈴?閫愭椂澶╂皵锛堟瘡2灏忔椂锛?/div>
+  <div class="hourly-row" id="hourlyRow"></div>
+  <div class="forecast-section">
+    <div class="forecast-label">馃搮 鏈潵澶╂皵棰勬姤</div>
+    <div class="forecast-row" id="forecastRow"></div>
+  </div>
 </div>
 
 <div class="card quote-card">
   <div class="quote-text" id="quoteText"></div>
-  <button class="quote-btn" onclick="refreshQuote()">💫 换一句</button>
+  <button class="quote-btn" onclick="refreshQuote()">馃挮 鎹竴鍙?/button>
 </div>
 
 <div class="card">
-  <strong style="font-size:1rem">🌸 例假小管家</strong>
+  <strong style="font-size:1rem">馃尭 渚嬪亣灏忕瀹?/strong>
   <div class="period-inputs" style="margin-top:10px">
-    <label>上次例假：</label>
+    <label>涓婃渚嬪亣锛?/label>
     <input type="date" id="periodDate" onchange="calcPeriod()">
-    <label>周期：</label>
+    <label>鍛ㄦ湡锛?/label>
     <select id="periodCycle" onchange="calcPeriod()"></select>
   </div>
   <div class="period-result" id="periodResult"></div>
@@ -294,21 +326,21 @@ h1 small { display:block; font-size:0.72rem; color:var(--text-secondary); font-w
 <div class="card">
   <div class="cal-header">
     <div>
-      <div style="font-size:0.84rem;color:var(--text-secondary)">今日热量摄入</div>
+      <div style="font-size:0.84rem;color:var(--text-secondary)">浠婃棩鐑噺鎽勫叆</div>
       <div class="cal-count" id="calToday">0 <small style="font-size:0.8rem">kcal</small></div>
     </div>
   </div>
   <div class="cal-btns">
-    <button class="btn-primary" onclick="openCalModal()">🍽 记录一餐</button>
-    <button class="btn-outline" onclick="resetCal()">🔄 重置今日</button>
+    <button class="btn-primary" onclick="openCalModal()">馃嵔 璁板綍涓€椁?/button>
+    <button class="btn-outline" onclick="resetCal()">馃攧 閲嶇疆浠婃棩</button>
   </div>
 </div>
 
 <div class="card">
-  <strong style="font-size:1rem">📋 待办小事</strong>
+  <strong style="font-size:1rem">馃搵 寰呭姙灏忎簨</strong>
   <div class="todo-input-row" style="margin-top:10px">
-    <input type="text" id="todoInput" placeholder="写下一个待办..." onkeydown="if(event.key==='Enter')addTodo()">
-    <button onclick="addTodo()">添加</button>
+    <input type="text" id="todoInput" placeholder="鍐欎笅涓€涓緟鍔?.." onkeydown="if(event.key==='Enter')addTodo()">
+    <button onclick="addTodo()">娣诲姞</button>
   </div>
   <div id="todoList"></div>
 </div>
@@ -317,17 +349,17 @@ h1 small { display:block; font-size:0.72rem; color:var(--text-secondary); font-w
 
 <div class="modal-overlay" id="calModal" onclick="if(event.target===this)closeCalModal()">
   <div class="modal-panel">
-    <h3>🍽 记录一餐</h3>
+    <h3>馃嵔 璁板綍涓€椁?/h3>
     <select id="calMealType">
-      <option value="早餐">🌅 早餐</option>
-      <option value="午餐">☀️ 午餐</option>
-      <option value="晚餐">🌙 晚餐</option>
-      <option value="加餐">🍪 加餐</option>
+      <option value="鏃╅">馃寘 鏃╅</option>
+      <option value="鍗堥">鈽€锔?鍗堥</option>
+      <option value="鏅氶">馃寵 鏅氶</option>
+      <option value="鍔犻">馃崻 鍔犻</option>
     </select>
-    <input type="number" id="calInput" placeholder="热量 (kcal)" min="0" inputmode="numeric">
+    <input type="number" id="calInput" placeholder="鐑噺 (kcal)" min="0" inputmode="numeric">
     <div class="modal-actions">
-      <button class="btn-outline" onclick="closeCalModal()">取消</button>
-      <button class="btn-primary" onclick="saveCal()">保存</button>
+      <button class="btn-outline" onclick="closeCalModal()">鍙栨秷</button>
+      <button class="btn-primary" onclick="saveCal()">淇濆瓨</button>
     </div>
   </div>
 </div>
@@ -336,196 +368,293 @@ h1 small { display:block; font-size:0.72rem; color:var(--text-secondary); font-w
 /* ========== THEME ========== */
 function setTheme(t) {
   document.body.setAttribute('data-theme', t);
-  document.querySelectorAll('.theme-tab').forEach(b => b.classList.toggle('active', b.dataset.theme === t));
-  const colors = {kuromi:'#6B3FA0',hellokitty:'#FF69B4',cinnamoroll:'#5BA4CF'};
+  document.querySelectorAll('.theme-tab').forEach(function(b){ b.classList.toggle('active', b.dataset.theme === t); });
+  var colors = {kuromi:'#3c096c',hellokitty:'#d63384',cinnamoroll:'#3a7ca8'};
   document.querySelector('meta[name=theme-color]').content = colors[t];
   try { localStorage.setItem('xy_theme', t); } catch(e) {}
 }
-try { const s=localStorage.getItem('xy_theme'); if(s) setTheme(s); } catch(e) {}
+try { var s = localStorage.getItem('xy_theme'); if (s) setTheme(s); } catch(e) {}
 
 /* ========== WEATHER ========== */
-const weatherCodes={
-  0:['☀️','晴天'],1:['🌤','少云'],2:['⛅','多云'],3:['☁️','阴天'],
-  45:['🌫','雾'],48:['🌫','冻雾'],
-  51:['🌦','小毛毛雨'],53:['🌦','毛毛雨'],55:['🌧','大毛毛雨'],
-  56:['🌧','冻毛毛雨'],57:['🌧','冻毛毛雨'],
-  61:['🌧','小雨'],63:['🌧','中雨'],65:['🌧','大雨'],
-  66:['🌨','冻雨'],67:['🌨','冻雨'],
-  71:['❄️','小雪'],73:['❄️','中雪'],75:['❄️','大雪'],
-  77:['🌨','雪粒'],80:['🌦','阵雨'],81:['🌧','中阵雨'],82:['🌧','大阵雨'],
-  85:['🌨','小阵雪'],86:['🌨','大阵雪'],
-  95:['⛈','雷暴'],96:['⛈','雷暴+小冰雹'],99:['⛈','雷暴+大冰雹']
+var weatherCodes = {
+  0:['鈽€锔?,'鏅村ぉ'],1:['馃尋','灏戜簯'],2:['鉀?,'澶氫簯'],3:['鈽侊笍','闃村ぉ'],
+  45:['馃尗','闆?],48:['馃尗','鍐婚浘'],
+  51:['馃對','灏忔瘺姣涢洦'],53:['馃對','姣涙瘺闆?],55:['馃導','澶ф瘺姣涢洦'],
+  56:['馃導','鍐绘瘺姣涢洦'],57:['馃導','鍐绘瘺姣涢洦'],
+  61:['馃導','灏忛洦'],63:['馃導','涓洦'],65:['馃導','澶ч洦'],
+  66:['馃尐','鍐婚洦'],67:['馃尐','鍐婚洦'],
+  71:['鉂勶笍','灏忛洩'],73:['鉂勶笍','涓洩'],75:['鉂勶笍','澶ч洩'],
+  77:['馃尐','闆矑'],80:['馃對','闃甸洦'],81:['馃導','涓樀闆?],82:['馃導','澶ч樀闆?],
+  85:['馃尐','灏忛樀闆?],86:['馃尐','澶ч樀闆?],
+  95:['鉀?,'闆锋毚'],96:['鉀?,'闆锋毚+灏忓啺闆?],99:['鉀?,'闆锋毚+澶у啺闆?]
 };
-function weatherCodeToEmoji(c){
-  if(c===0)return'☀️';if(c<=3)return'⛅';if(c===45||c===48)return'🌫';
-  if(c<=57)return'🌧';if(c<=67)return'🌧';if(c<=77)return'❄️';
-  if(c<=82)return'🌧';if(c<=86)return'🌨';return'⛈';
+function weatherCodeToEmoji(c) {
+  if (c === 0) return '鈽€锔?;
+  if (c <= 3) return '鉀?;
+  if (c === 45 || c === 48) return '馃尗';
+  if (c <= 57) return '馃導';
+  if (c <= 67) return '馃導';
+  if (c <= 77) return '鉂勶笍';
+  if (c <= 82) return '馃導';
+  if (c <= 86) return '馃尐';
+  return '鉀?;
 }
-function windSpeedToLevel(ms){
-  if(ms<0.3)return'0级 无风';if(ms<1.6)return'1级 软风';if(ms<3.4)return'2级 轻风';
-  if(ms<5.5)return'3级 微风';if(ms<8.0)return'4级 和风';if(ms<10.8)return'5级 清风';
-  if(ms<13.9)return'6级 强风';if(ms<17.2)return'7级 疾风';if(ms<20.8)return'8级 大风';
-  if(ms<24.5)return'9级 烈风';if(ms<28.5)return'10级 狂风';if(ms<32.7)return'11级 暴风';return'12级 飓风';
+function windSpeedToLevel(ms) {
+  if (ms < 0.3) return '0绾?鏃犻';
+  if (ms < 1.6) return '1绾?杞';
+  if (ms < 3.4) return '2绾?杞婚';
+  if (ms < 5.5) return '3绾?寰';
+  if (ms < 8.0) return '4绾?鍜岄';
+  if (ms < 10.8) return '5绾?娓呴';
+  if (ms < 13.9) return '6绾?寮洪';
+  if (ms < 17.2) return '7绾?鐤鹃';
+  if (ms < 20.8) return '8绾?澶ч';
+  if (ms < 24.5) return '9绾?鐑堥';
+  if (ms < 28.5) return '10绾?鐙傞';
+  if (ms < 32.7) return '11绾?鏆撮';
+  return '12绾?椋撻';
 }
-function parseWeather(d){
-  var cw=d.current_weather,daily=d.daily,hourly=d.hourly;
-  var now=new Date(),h=now.getHours();
-  var humidity=(hourly&&hourly.relativehumidity_2m&&hourly.relativehumidity_2m.length>0)
-    ?hourly.relativehumidity_2m[Math.min(h,hourly.relativehumidity_2m.length-1)]:'--';
-  var wc=cw.weathercode,wInfo=weatherCodes[wc]||['🌈','未知'];
-  document.getElementById('wTemp').textContent=Math.round(cw.temperature)+'°';
-  document.getElementById('wDesc').textContent=wInfo[1];
-  document.getElementById('weatherTime').textContent='更新于 '+new Date().toLocaleTimeString('zh-CN',{hour:'2-digit',minute:'2-digit'});
-  document.getElementById('wDetail').innerHTML='体感 '+Math.round(cw.temperature)+'° &nbsp;湿度 '+humidity+'% &nbsp;'+windSpeedToLevel(cw.windspeed);
-  var alerts='';
-  var todayMax=daily.temperature_2m_max[1],todayMin=daily.temperature_2m_min[1];
-  var yesterdayMax=daily.temperature_2m_max[0],yesterdayMin=daily.temperature_2m_min[0];
-  var diff=Math.round((todayMax+todayMin)/2-(yesterdayMax+yesterdayMin)/2);
-  if(diff>3)alerts+='<div class="alert-item warn">📈 今天比昨天暖了'+Math.abs(diff)+'°C，可以穿薄一点哦</div>';
-  else if(diff<-3)alerts+='<div class="alert-item info">📉 今天比昨天冷了'+Math.abs(diff)+'°C，注意加衣保暖</div>';
-  else alerts+='<div class="alert-item">🌡 今天和昨天温度差不多，保持舒适穿搭就好</div>';
-  var tomorrowPrecip=daily.precipitation_probability_max[2]||0;
-  if(tomorrowPrecip>50)alerts+='<div class="alert-item warn">🌂 明天降水概率'+tomorrowPrecip+'%，记得带伞哦</div>';
-  var t=cw.temperature;
-  if(t<10)alerts+='<div class="alert-item info">🧥 降温啦，穿上厚外套或羽绒服吧</div>';
-  else if(t<18)alerts+='<div class="alert-item info">🧣 微凉，穿件薄外套或卫衣刚好</div>';
-  else if(t<26)alerts+='<div class="alert-item">👕 温度舒适，长袖T恤或衬衫就够啦</div>';
-  else if(t<32)alerts+='<div class="alert-item">👗 夏天来啦，短袖短裤安排上</div>';
-  else alerts+='<div class="alert-item warn">🔥 高温预警！轻薄透气最重要</div>';
-  if(wc===0&&t>28)alerts+='<div class="alert-item danger">☀️ 大晴天又高温，出门记得涂防晒霜！</div>';
-  if(Math.abs(diff)>5||(humidity!=='--'&&humidity>80&&t<20))alerts+='<div class="alert-item warn">🤧 温差大/湿度高，小心感冒，多喝热水</div>';
-  document.getElementById('wAlerts').innerHTML=alerts;
-  var fcHtml='',weekdays=['日','一','二','三','四','五','六'];
-  for(var i=0;i<3;i++){
-    var di=i+1,d=new Date(now);d.setDate(d.getDate()+i);
-    var label=i===0?'今天':(i===1?'明天':'后天'),dayName=weekdays[d.getDay()];
-    fcHtml+='<div class="forecast-day"><div class="day-label">'+label+' '+dayName+'</div>';
-    fcHtml+='<div class="day-icon">'+weatherCodeToEmoji(daily.weathercode[di])+'</div>';
-    fcHtml+='<div class="day-temp">'+Math.round(daily.temperature_2m_max[di])+'°</div>';
-    fcHtml+='<div class="day-low">'+Math.round(daily.temperature_2m_min[di])+'°</div></div>';
+
+function parseWeather(d) {
+  var cw = d.current_weather, daily = d.daily, hourly = d.hourly;
+  var now = new Date(), h = now.getHours();
+  var wc = cw.weathercode, wInfo = weatherCodes[wc] || ['馃寛','鏈煡'];
+
+  // Current weather
+  document.getElementById('wTemp').textContent = Math.round(cw.temperature) + '掳';
+  document.getElementById('wDesc').textContent = wInfo[1];
+  document.getElementById('weatherTime').textContent = '鏇存柊浜?' + now.toLocaleTimeString('zh-CN', {hour:'2-digit',minute:'2-digit'});
+
+  var humidity = '--';
+  if (hourly && hourly.relative_humidity_2m) {
+    var hi = hourly.time.findIndex(function(t){ return t >= now.toISOString().slice(0,13)+':00'; });
+    if (hi >= 0) humidity = hourly.relative_humidity_2m[hi];
   }
-  document.getElementById('forecastRow').innerHTML=fcHtml;
+  document.getElementById('wDetail').innerHTML = '浣撴劅 ' + Math.round(cw.temperature) + '掳 &nbsp;婀垮害 ' + humidity + '% &nbsp;' + windSpeedToLevel(cw.windspeed);
+
+  /* ---- Smart alerts ---- */
+  var alerts = '';
+  var todayMax = daily.temperature_2m_max[1], todayMin = daily.temperature_2m_min[1];
+  var yesterdayMax = daily.temperature_2m_max[0], yesterdayMin = daily.temperature_2m_min[0];
+  var diff = Math.round((todayMax + todayMin) / 2 - (yesterdayMax + yesterdayMin) / 2);
+  if (diff > 3) alerts += '<div class="alert-item warn">馃搱 浠婂ぉ姣旀槰澶╂殩浜? + Math.abs(diff) + '掳C锛屽彲浠ョ┛钖勪竴鐐瑰摝</div>';
+  else if (diff < -3) alerts += '<div class="alert-item info">馃搲 浠婂ぉ姣旀槰澶╁喎浜? + Math.abs(diff) + '掳C锛屾敞鎰忓姞琛ｄ繚鏆?/div>';
+  else alerts += '<div class="alert-item">馃尅 浠婂ぉ鍜屾槰澶╂俯搴﹀樊涓嶅锛屼繚鎸佽垝閫傜┛鎼氨濂?/div>';
+
+  var tomorrowPrecip = daily.precipitation_probability_max ? (daily.precipitation_probability_max[2] || 0) : 0;
+  if (tomorrowPrecip > 50) alerts += '<div class="alert-item warn">馃寕 鏄庡ぉ闄嶆按姒傜巼' + tomorrowPrecip + '%锛岃寰楀甫浼炲摝</div>';
+
+  var t = cw.temperature;
+  if (t < 10) alerts += '<div class="alert-item info">馃Д 闄嶆俯鍟︼紝绌夸笂鍘氬濂楁垨缇界粧鏈嶅惂</div>';
+  else if (t < 18) alerts += '<div class="alert-item info">馃В 寰噳锛岀┛浠惰杽澶栧鎴栧崼琛ｅ垰濂?/div>';
+  else if (t < 26) alerts += '<div class="alert-item">馃憰 娓╁害鑸掗€傦紝闀胯T鎭ゆ垨琛～灏卞鍟?/div>';
+  else if (t < 32) alerts += '<div class="alert-item">馃憲 澶忓ぉ鏉ュ暒锛岀煭琚栫煭瑁ゅ畨鎺掍笂</div>';
+  else alerts += '<div class="alert-item warn">馃敟 楂樻俯棰勮锛佽交钖勯€忔皵鏈€閲嶈</div>';
+
+  if (wc === 0 && t > 28) alerts += '<div class="alert-item danger">鈽€锔?澶ф櫞澶╁張楂樻俯锛屽嚭闂ㄨ寰楁秱闃叉檼闇滐紒</div>';
+  if (Math.abs(diff) > 5 || (humidity !== '--' && humidity > 80 && t < 20)) alerts += '<div class="alert-item warn">馃ぇ 娓╁樊澶?婀垮害楂橈紝灏忓績鎰熷啋锛屽鍠濈儹姘?/div>';
+
+  document.getElementById('wAlerts').innerHTML = alerts;
+
+  /* ---- Hourly forecast (every 2 hours, next 24h) ---- */
+  var hh = '';
+  if (hourly && hourly.time && hourly.temperature_2m) {
+    var curHr = now.getHours();
+    var todayStr = now.toISOString().slice(0, 10);
+    var startIdx = 0;
+    for (var si = 0; si < hourly.time.length; si++) {
+      if (hourly.time[si] >= todayStr + 'T' + String(curHr).padStart(2,'0') + ':00') {
+        startIdx = si;
+        break;
+      }
+    }
+    for (var i = 0; i < 12; i++) {
+      var hi = startIdx + i * 2;
+      if (hi >= hourly.time.length) break;
+      var ht = hourly.time[hi];
+      var hDate = new Date(ht + ':00');
+      var hLabel = String(hDate.getHours()).padStart(2,'0') + ':00';
+      var hTemp = Math.round(hourly.temperature_2m[hi]);
+      var hWc = hourly.weather_code ? hourly.weather_code[hi] : 0;
+      var hEmoji = (weatherCodes[hWc] || ['鈽€锔?,''])[0];
+      var hRain = hourly.precipitation_probability ? (hourly.precipitation_probability[hi] || 0) : 0;
+      var isNow = i === 0;
+      hh += '<div class="hourly-item' + (isNow ? ' now' : '') + '">';
+      hh += '<div class="h-time">' + (isNow ? '鐜板湪' : hLabel) + '</div>';
+      hh += '<div class="h-icon">' + hEmoji + '</div>';
+      hh += '<div class="h-temp">' + hTemp + '掳</div>';
+      hh += '<div class="h-rain">' + (hRain > 0 ? '馃挧' + hRain + '%' : '&nbsp;') + '</div>';
+      hh += '</div>';
+    }
+  }
+  document.getElementById('hourlyRow').innerHTML = hh;
+
+  /* ---- 7-day forecast ---- */
+  var fcHtml = '', weekdays = ['鏃?,'涓€','浜?,'涓?,'鍥?,'浜?,'鍏?];
+  var totalDays = Math.min(7, daily.temperature_2m_max.length - 1);
+  for (var j = 1; j <= totalDays; j++) {
+    var dd = new Date(now);
+    dd.setDate(dd.getDate() + (j - 1));
+    var label = j === 1 ? '浠婂ぉ' : (j === 2 ? '鏄庡ぉ' : (j === 3 ? '鍚庡ぉ' : ''));
+    var dayName = weekdays[dd.getDay()];
+    fcHtml += '<div class="forecast-day"><div class="day-label">' + (label || dayName) + '</div>';
+    fcHtml += '<div class="day-icon">' + weatherCodeToEmoji(daily.weathercode[j]) + '</div>';
+    fcHtml += '<div class="day-temp">' + Math.round(daily.temperature_2m_max[j]) + '掳</div>';
+    fcHtml += '<div class="day-low">' + Math.round(daily.temperature_2m_min[j]) + '掳</div>';
+    var precip = daily.precipitation_probability_max ? (daily.precipitation_probability_max[j] || 0) : 0;
+    fcHtml += '<div class="day-rain">' + (precip > 10 ? '馃挧' + precip + '%' : '&nbsp;') + '</div>';
+    fcHtml += '</div>';
+  }
+  document.getElementById('forecastRow').innerHTML = fcHtml;
 }
-async function fetchWeather(){
-  try{
-    var ctrl=new AbortController(),timeout=setTimeout(function(){ctrl.abort()},5000);
-    var url='https://api.open-meteo.com/v1/forecast?latitude=23.1291&longitude=113.2644&current_weather=true&daily=weathercode,temperature_2m_max,temperature_2m_min,precipitation_probability_max&hourly=relativehumidity_2m&timezone=Asia/Shanghai&past_days=1&forecast_days=3';
-    var res=await fetch(url,{signal:ctrl.signal});clearTimeout(timeout);
-    if(!res.ok)throw new Error('HTTP '+res.status);
-    var data=await res.json();parseWeather(data);
-    try{localStorage.setItem('xy_weather_cache',JSON.stringify(data));}catch(e){}
-  }catch(e){
-    console.warn('Weather fetch failed:',e);
-    try{var cached=localStorage.getItem('xy_weather_cache');if(cached){parseWeather(JSON.parse(cached));return;}}catch(e2){}
-    document.getElementById('wTemp').textContent='😢';
-    document.getElementById('wDesc').textContent='天气加载失败，下拉刷新试试';
+
+async function fetchWeather() {
+  try {
+    var ctrl = new AbortController(), timeout = setTimeout(function(){ ctrl.abort(); }, 6000);
+    var url = 'https://api.open-meteo.com/v1/forecast?latitude=23.1291&longitude=113.2644&current_weather=true' +
+      '&daily=weathercode,temperature_2m_max,temperature_2m_min,precipitation_probability_max,uv_index_max' +
+      '&hourly=temperature_2m,precipitation_probability,weather_code,relative_humidity_2m' +
+      '&timezone=Asia/Shanghai&past_days=1&forecast_days=7';
+    var res = await fetch(url, {signal: ctrl.signal});
+    clearTimeout(timeout);
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    var data = await res.json();
+    parseWeather(data);
+    try { localStorage.setItem('xy_weather_cache', JSON.stringify(data)); } catch(e) {}
+  } catch(e) {
+    console.warn('Weather fetch failed:', e);
+    try {
+      var cached = localStorage.getItem('xy_weather_cache');
+      if (cached) { parseWeather(JSON.parse(cached)); return; }
+    } catch(e2) {}
+    document.getElementById('wTemp').textContent = '馃槩';
+    document.getElementById('wDesc').textContent = '澶╂皵鍔犺浇澶辫触锛屼笅鎷夊埛鏂拌瘯璇?;
   }
 }
 
 /* ========== QUOTES ========== */
-var quotes=[
-  '你是我见过最温柔的人，像春天第一缕风。','小院，光是你的名字，就能让我开心一整天。',
-  '生活可能不完美，但有你在就是最好的版本。','今天也要记得笑呀，你笑起来最好看了。',
-  '累了就歇一歇，我的小院不需要一直那么坚强。','每一天都值得被温柔对待，尤其是你。',
-  '你值得世间所有美好，包括我全部的耐心。','小院，你是我漫长岁月里的惊喜。',
-  '别太焦虑，花会开，风会来，一切都会好的。','晚安这个词，对你说了就是最美的情话。',
-  '你就是我的今日份开心。','照顾好自己，因为你是我最珍贵的宝物。',
-  '月亮不会奔你而来，但我会。','再冷的冬天，想到你就暖了。',
-  '你不必成为谁的太阳，做自己的星星就好。','今天辛苦啦，小院值得一个大大的拥抱。',
-  '你的存在本身，就是一件很美好的事情。','去爱，去生活，去感受——我陪你。',
-  '春风十里，夏阳满山，秋雨淅淅，冬雪皑皑，都不如你。','看到一朵花好看，就想起你了。',
-  '小院，这个世界因为你而变甜了一点点。','愿你吃嘛嘛香，睡嘛嘛棒，天天没烦恼。',
-  '你生气的时候也很可爱，但我还是希望你开开心心的。','没有一朵云应该被责备，你也一样。',
-  '下雨天是天空在帮你浇花，阴天是太阳在睡懒觉。','每天醒来能看到你消息，就是我最好的早晨。',
-  '别怕，不管什么事，我都在。','愿你的梦里，有软软的云和甜甜的风。',
-  '我们慢慢来，日子很长，爱也很长。','你是我最想留住的幸运。',
-  '人生的意义不在于拿到好牌，而在于打好烂牌——但你已经是我的王牌了。'
+var quotes = [
+  '浣犳槸鎴戣杩囨渶娓╂煍鐨勪汉锛屽儚鏄ュぉ绗竴缂曢銆?,'灏忛櫌锛屽厜鏄綘鐨勫悕瀛楋紝灏辫兘璁╂垜寮€蹇冧竴鏁村ぉ銆?,
+  '鐢熸椿鍙兘涓嶅畬缇庯紝浣嗘湁浣犲湪灏辨槸鏈€濂界殑鐗堟湰銆?,'浠婂ぉ涔熻璁板緱绗戝憖锛屼綘绗戣捣鏉ユ渶濂界湅浜嗐€?,
+  '绱簡灏辨瓏涓€姝囷紝鎴戠殑灏忛櫌涓嶉渶瑕佷竴鐩撮偅涔堝潥寮恒€?,'姣忎竴澶╅兘鍊煎緱琚俯鏌斿寰咃紝灏ゅ叾鏄綘銆?,
+  '浣犲€煎緱涓栭棿鎵€鏈夌編濂斤紝鍖呮嫭鎴戝叏閮ㄧ殑鑰愬績銆?,'灏忛櫌锛屼綘鏄垜婕暱宀佹湀閲岀殑鎯婂枩銆?,
+  '鍒お鐒﹁檻锛岃姳浼氬紑锛岄浼氭潵锛屼竴鍒囬兘浼氬ソ鐨勩€?,'鏅氬畨杩欎釜璇嶏紝瀵逛綘璇翠簡灏辨槸鏈€缇庣殑鎯呰瘽銆?,
+  '浣犲氨鏄垜鐨勪粖鏃ヤ唤寮€蹇冦€?,'鐓ч【濂借嚜宸憋紝鍥犱负浣犳槸鎴戞渶鐝嶈吹鐨勫疂鐗┿€?,
+  '鏈堜寒涓嶄細濂斾綘鑰屾潵锛屼絾鎴戜細銆?,'鍐嶅喎鐨勫啲澶╋紝鎯冲埌浣犲氨鏆栦簡銆?,
+  '浣犱笉蹇呮垚涓鸿皝鐨勫お闃筹紝鍋氳嚜宸辩殑鏄熸槦灏卞ソ銆?,'浠婂ぉ杈涜嫤鍟︼紝灏忛櫌鍊煎緱涓€涓ぇ澶х殑鎷ユ姳銆?,
+  '浣犵殑瀛樺湪鏈韩锛屽氨鏄竴浠跺緢缇庡ソ鐨勪簨鎯呫€?,'鍘荤埍锛屽幓鐢熸椿锛屽幓鎰熷彈鈥斺€旀垜闄綘銆?,
+  '鏄ラ鍗侀噷锛屽闃虫弧灞憋紝绉嬮洦娣呮穮锛屽啲闆殤鐨戯紝閮戒笉濡備綘銆?,'鐪嬪埌涓€鏈佃姳濂界湅锛屽氨鎯宠捣浣犱簡銆?,
+  '灏忛櫌锛岃繖涓笘鐣屽洜涓轰綘鑰屽彉鐢滀簡涓€鐐圭偣銆?,'鎰夸綘鍚冨槢鍢涢锛岀潯鍢涘槢妫掞紝澶╁ぉ娌＄儲鎭笺€?,
+  '浣犵敓姘旂殑鏃跺€欎篃寰堝彲鐖憋紝浣嗘垜杩樻槸甯屾湜浣犲紑寮€蹇冨績鐨勩€?,'娌℃湁涓€鏈典簯搴旇琚矗澶囷紝浣犱篃涓€鏍枫€?,
+  '涓嬮洦澶╂槸澶╃┖鍦ㄥ府浣犳祰鑺憋紝闃村ぉ鏄お闃冲湪鐫℃噿瑙夈€?,'姣忓ぉ閱掓潵鑳界湅鍒颁綘娑堟伅锛屽氨鏄垜鏈€濂界殑鏃╂櫒銆?,
+  '鍒€曪紝涓嶇浠€涔堜簨锛屾垜閮藉湪銆?,'鎰夸綘鐨勬ⅵ閲岋紝鏈夎蒋杞殑浜戝拰鐢滅敎鐨勯銆?,
+  '鎴戜滑鎱㈡參鏉ワ紝鏃ュ瓙寰堥暱锛岀埍涔熷緢闀裤€?,'浣犳槸鎴戞渶鎯崇暀浣忕殑骞歌繍銆?,
+  '浜虹敓鐨勬剰涔変笉鍦ㄤ簬鎷垮埌濂界墝锛岃€屽湪浜庢墦濂界儌鐗屸€斺€斾絾浣犲凡缁忔槸鎴戠殑鐜嬬墝浜嗐€?
 ];
-function getDailyQuote(){
-  var now=new Date();
-  return quotes[(now.getFullYear()*10000+(now.getMonth()+1)*100+now.getDate())%quotes.length];
+function getDailyQuote() {
+  var now = new Date();
+  return quotes[(now.getFullYear() * 10000 + (now.getMonth() + 1) * 100 + now.getDate()) % quotes.length];
 }
-function refreshQuote(){
-  document.getElementById('quoteText').textContent='「'+quotes[Math.floor(Math.random()*quotes.length)]+'」';
+function refreshQuote() {
+  document.getElementById('quoteText').textContent = '銆? + quotes[Math.floor(Math.random() * quotes.length)] + '銆?;
 }
-document.getElementById('quoteText').textContent='「'+getDailyQuote()+'」';
+document.getElementById('quoteText').textContent = '銆? + getDailyQuote() + '銆?;
 
 /* ========== PERIOD ========== */
-(function(){
-  var sel=document.getElementById('periodCycle');
-  for(var i=21;i<=35;i++){var o=document.createElement('option');o.value=i;o.textContent=i+'天';if(i===28)o.selected=true;sel.appendChild(o);}
+(function() {
+  var sel = document.getElementById('periodCycle');
+  for (var i = 21; i <= 35; i++) {
+    var o = document.createElement('option');
+    o.value = i; o.textContent = i + '澶?;
+    if (i === 28) o.selected = true;
+    sel.appendChild(o);
+  }
 })();
-function calcPeriod(){
-  var dateVal=document.getElementById('periodDate').value;
-  var cycle=parseInt(document.getElementById('periodCycle').value)||28;
-  if(!dateVal){document.getElementById('periodResult').innerHTML='<span style="color:var(--text-secondary)">请先选择上次例假日期</span>';document.getElementById('periodAlert').innerHTML='';return;}
-  try{localStorage.setItem('xy_period_date',dateVal);localStorage.setItem('xy_period_cycle',cycle);}catch(e){}
-  var last=new Date(dateVal+'T00:00:00'),next=new Date(last);next.setDate(next.getDate()+cycle);
-  var ovu=new Date(next);ovu.setDate(ovu.getDate()-14);
-  var fs=new Date(ovu);fs.setDate(fs.getDate()-3);
-  var fe=new Date(ovu);fe.setDate(fe.getDate()+3);
-  var now=new Date();now.setHours(0,0,0,0);
-  var diffDays=Math.ceil((next-now)/86400000);
-  var fmt=function(d){return d.toLocaleDateString('zh-CN',{month:'numeric',day:'numeric'});};
-  document.getElementById('periodResult').innerHTML=
-    '<div>📅 下一次例假：<strong>'+fmt(next)+'</strong>（还有 <strong>'+diffDays+'</strong> 天）</div>'+
-    '<div>🥚 排卵期：'+fmt(ovu)+'</div>'+
-    '<div>💕 易孕期：'+fmt(fs)+' ~ '+fmt(fe)+'</div>';
-  var ah='';
-  if(diffDays<0)ah='⚠️ 例假已推迟 '+Math.abs(diffDays)+' 天，注意观察身体变化哦';
-  else if(diffDays===0)ah='🔴 今天可能来例假哦，记得准备好卫生用品～';
-  else if(diffDays<=2)ah='⏰ 例假快到了（还剩'+diffDays+'天），提前备好暖宝宝和红糖水吧';
-  else if(diffDays<=5)ah='🌺 例假倒计时 '+diffDays+' 天，少吃生冷，注意保暖～';
-  else if(diffDays<=14)ah='🥚 排卵期附近，身体状态会比较好哦';
-  else if(diffDays<=21)ah='🌸 一切正常，好好照顾自己';
-  else ah='✨ 新周期刚开始，元气满满！';
-  document.getElementById('periodAlert').innerHTML=ah;
+function calcPeriod() {
+  var dateVal = document.getElementById('periodDate').value;
+  var cycle = parseInt(document.getElementById('periodCycle').value) || 28;
+  if (!dateVal) {
+    document.getElementById('periodResult').innerHTML = '<span style="color:var(--text-secondary)">璇峰厛閫夋嫨涓婃渚嬪亣鏃ユ湡</span>';
+    document.getElementById('periodAlert').innerHTML = '';
+    return;
+  }
+  try { localStorage.setItem('xy_period_date', dateVal); localStorage.setItem('xy_period_cycle', cycle); } catch(e) {}
+  var last = new Date(dateVal + 'T00:00:00'), next = new Date(last);
+  next.setDate(next.getDate() + cycle);
+  var ovu = new Date(next);
+  ovu.setDate(ovu.getDate() - 14);
+  var fs = new Date(ovu);
+  fs.setDate(fs.getDate() - 3);
+  var fe = new Date(ovu);
+  fe.setDate(fe.getDate() + 3);
+  var now = new Date();
+  now.setHours(0,0,0,0);
+  var diffDays = Math.ceil((next - now) / 86400000);
+  var fmt = function(d) { return d.toLocaleDateString('zh-CN', {month:'numeric', day:'numeric'}); };
+  document.getElementById('periodResult').innerHTML =
+    '<div>馃搮 涓嬩竴娆′緥鍋囷細<strong>' + fmt(next) + '</strong>锛堣繕鏈?<strong>' + diffDays + '</strong> 澶╋級</div>' +
+    '<div>馃 鎺掑嵉鏈燂細' + fmt(ovu) + '</div>' +
+    '<div>馃挄 鏄撳瓡鏈燂細' + fmt(fs) + ' ~ ' + fmt(fe) + '</div>';
+  var ah = '';
+  if (diffDays < 0) ah = '鈿狅笍 渚嬪亣宸叉帹杩?' + Math.abs(diffDays) + ' 澶╋紝娉ㄦ剰瑙傚療韬綋鍙樺寲鍝?;
+  else if (diffDays === 0) ah = '馃敶 浠婂ぉ鍙兘鏉ヤ緥鍋囧摝锛岃寰楀噯澶囧ソ鍗敓鐢ㄥ搧锝?;
+  else if (diffDays <= 2) ah = '鈴?渚嬪亣蹇埌浜嗭紙杩樺墿' + diffDays + '澶╋級锛屾彁鍓嶅濂芥殩瀹濆疂鍜岀孩绯栨按鍚?;
+  else if (diffDays <= 5) ah = '馃尯 渚嬪亣鍊掕鏃?' + diffDays + ' 澶╋紝灏戝悆鐢熷喎锛屾敞鎰忎繚鏆栵綖';
+  else if (diffDays <= 14) ah = '馃 鎺掑嵉鏈熼檮杩戯紝韬綋鐘舵€佷細姣旇緝濂藉摝';
+  else if (diffDays <= 21) ah = '馃尭 涓€鍒囨甯革紝濂藉ソ鐓ч【鑷繁';
+  else ah = '鉁?鏂板懆鏈熷垰寮€濮嬶紝鍏冩皵婊℃弧锛?;
+  document.getElementById('periodAlert').innerHTML = ah;
 }
-try{var sd=localStorage.getItem('xy_period_date'),sc=localStorage.getItem('xy_period_cycle');if(sd)document.getElementById('periodDate').value=sd;if(sc)document.getElementById('periodCycle').value=sc;if(sd)calcPeriod();}catch(e){}
+try {
+  var sd = localStorage.getItem('xy_period_date'), sc = localStorage.getItem('xy_period_cycle');
+  if (sd) document.getElementById('periodDate').value = sd;
+  if (sc) document.getElementById('periodCycle').value = sc;
+  if (sd) calcPeriod();
+} catch(e) {}
 
 /* ========== CALORIE ========== */
-function getCalKey(){var d=new Date();return'xy_cal_'+d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');}
-function loadCal(){try{return JSON.parse(localStorage.getItem(getCalKey()))||[];}catch(e){return[];}}
-function saveCalLog(a){try{localStorage.setItem(getCalKey(),JSON.stringify(a));}catch(e){}}
-function renderCal(){var l=loadCal(),t=l.reduce(function(s,e){return s+(e.kcal||0)},0);document.getElementById('calToday').innerHTML=t+' <small style="font-size:0.8rem">kcal</small>';}
-function openCalModal(){document.getElementById('calModal').classList.add('show');document.getElementById('calInput').value='';document.getElementById('calInput').focus();}
-function closeCalModal(){document.getElementById('calModal').classList.remove('show');}
-function saveCal(){var k=parseInt(document.getElementById('calInput').value)||0;if(k<=0)return;var l=loadCal();l.push({type:document.getElementById('calMealType').value,kcal:k,time:new Date().toLocaleTimeString('zh-CN',{hour:'2-digit',minute:'2-digit'})});saveCalLog(l);renderCal();closeCalModal();}
-function resetCal(){saveCalLog([]);renderCal();}
+function getCalKey() { var d = new Date(); return 'xy_cal_' + d.getFullYear() + '-' + String(d.getMonth()+1).padStart(2,'0') + '-' + String(d.getDate()).padStart(2,'0'); }
+function loadCal() { try { return JSON.parse(localStorage.getItem(getCalKey())) || []; } catch(e) { return []; } }
+function saveCalLog(a) { try { localStorage.setItem(getCalKey(), JSON.stringify(a)); } catch(e) {} }
+function renderCal() { var l = loadCal(), t = l.reduce(function(s,e){ return s + (e.kcal||0); }, 0); document.getElementById('calToday').innerHTML = t + ' <small style="font-size:0.8rem">kcal</small>'; }
+function openCalModal() { document.getElementById('calModal').classList.add('show'); document.getElementById('calInput').value = ''; document.getElementById('calInput').focus(); }
+function closeCalModal() { document.getElementById('calModal').classList.remove('show'); }
+function saveCal() { var k = parseInt(document.getElementById('calInput').value) || 0; if (k <= 0) return; var l = loadCal(); l.push({type:document.getElementById('calMealType').value, kcal:k, time:new Date().toLocaleTimeString('zh-CN',{hour:'2-digit',minute:'2-digit'})}); saveCalLog(l); renderCal(); closeCalModal(); }
+function resetCal() { saveCalLog([]); renderCal(); }
 renderCal();
 
 /* ========== TODO ========== */
-var todos=[];
-function loadTodos(){try{var d=localStorage.getItem('xy_todos');if(d)todos=JSON.parse(d);}catch(e){todos=[];}if(todos.length===0){todos=[{text:'买花🌷',done:false},{text:'提醒小院喝水',done:false},{text:'晚安故事',done:false}];}}
-function saveTodos(){try{localStorage.setItem('xy_todos',JSON.stringify(todos));}catch(e){}}
-function renderTodos(){
-  document.getElementById('todoList').innerHTML=todos.map(function(t,i){
-    return'<div class="todo-item"><input type="checkbox"'+(t.done?' checked':'')+' onchange="toggleTodo('+i+')"><span class="todo-text'+(t.done?' done':'')+'">'+t.text+'</span><button class="todo-del" onclick="delTodo('+i+')">🗑</button></div>';
+var todos = [];
+function loadTodos() { try { var d = localStorage.getItem('xy_todos'); if (d) todos = JSON.parse(d); } catch(e) { todos = []; } if (todos.length === 0) { todos = [{text:'涔拌姳馃尫',done:false},{text:'鎻愰啋灏忛櫌鍠濇按',done:false},{text:'鏅氬畨鏁呬簨',done:false}]; } }
+function saveTodos() { try { localStorage.setItem('xy_todos', JSON.stringify(todos)); } catch(e) {} }
+function renderTodos() {
+  document.getElementById('todoList').innerHTML = todos.map(function(t,i){
+    return '<div class="todo-item"><input type="checkbox"' + (t.done?' checked':'') + ' onchange="toggleTodo('+i+')"><span class="todo-text' + (t.done?' done':'') + '">' + t.text + '</span><button class="todo-del" onclick="delTodo('+i+')">馃棏</button></div>';
   }).join('');
 }
-function addTodo(){var v=document.getElementById('todoInput').value.trim();if(!v)return;todos.push({text:v,done:false});saveTodos();renderTodos();document.getElementById('todoInput').value='';}
-function toggleTodo(i){todos[i].done=!todos[i].done;saveTodos();renderTodos();}
-function delTodo(i){todos.splice(i,1);saveTodos();renderTodos();}
-loadTodos();renderTodos();
+function addTodo() { var v = document.getElementById('todoInput').value.trim(); if (!v) return; todos.push({text:v,done:false}); saveTodos(); renderTodos(); document.getElementById('todoInput').value = ''; }
+function toggleTodo(i) { todos[i].done = !todos[i].done; saveTodos(); renderTodos(); }
+function delTodo(i) { todos.splice(i,1); saveTodos(); renderTodos(); }
+loadTodos(); renderTodos();
 
 /* ========== INSTALL BANNER ========== */
-(function(){
-  var ua=navigator.userAgent.toLowerCase();
-  var isSafari=/safari/.test(ua)&&!/chrome|android/.test(ua);
-  var isChromeAndroid=/chrome/.test(ua)&&/android/.test(ua);
-  var isStandalone=window.matchMedia('(display-mode: standalone)').matches||navigator.standalone;
-  if((isSafari||isChromeAndroid)&&!isStandalone&&!sessionStorage.getItem('xy_banner_closed')){
+(function() {
+  var ua = navigator.userAgent.toLowerCase();
+  var isSafari = /safari/.test(ua) && !/chrome|android/.test(ua);
+  var isChromeAndroid = /chrome/.test(ua) && /android/.test(ua);
+  var isStandalone = window.matchMedia('(display-mode: standalone)').matches || navigator.standalone;
+  if ((isSafari || isChromeAndroid) && !isStandalone && !sessionStorage.getItem('xy_banner_closed')) {
     document.getElementById('installBanner').classList.add('show');
   }
 })();
-function closeBanner(){document.getElementById('installBanner').classList.remove('show');try{sessionStorage.setItem('xy_banner_closed','1');}catch(e){}}
+function closeBanner() { document.getElementById('installBanner').classList.remove('show'); try { sessionStorage.setItem('xy_banner_closed','1'); } catch(e) {} }
 
 /* ========== INIT ========== */
 fetchWeather();
-setInterval(fetchWeather,30*60*1000);
+setInterval(fetchWeather, 30 * 60 * 1000);
 
-if('serviceWorker' in navigator){
-  navigator.serviceWorker.register('/xiaoyuan/sw.js',{scope:'/xiaoyuan/'}).catch(function(){});
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/xiaoyuan/sw.js', {scope:'/xiaoyuan/'}).catch(function(){});
 }
 </script>
 </body>
