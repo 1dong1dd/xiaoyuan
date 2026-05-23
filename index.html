@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="小院">
+<meta name="theme-color" content="#5BA4CF">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'><stop offset='0%25' style='stop-color:%23a8d8f0'/><stop offset='100%25' style='stop-color:%235BA4CF'/></linearGradient></defs><rect fill='url(%23g)' width='100' height='100' rx='20'/><text x='50' y='72' text-anchor='middle' font-size='60'>🐶</text></svg>">
+<title>小院的小窝</title>
+<style>
+:root {
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-left: env(safe-area-inset-left, 0px);
+  --safe-right: env(safe-area-inset-right, 0px);
+  --primary: #6B3FA0;
+  --primary-light: #b07cd8;
+  --primary-dark: #45237d;
+  --bg: #f5f0fa;
+  --card-bg: rgba(255,255,255,0.85);
+  --text: #2d1b4e;
+  --text-secondary: #5a4a6e;
+  --accent: #ffd700;
+  --danger: #e74c3c;
+  --success: #27ae60;
+  --border: rgba(107,63,160,0.15);
+  --shadow: 0 4px 24px rgba(107,63,160,0.1);
+  --radius: 24px;
+  --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}
+[data-theme="hellokitty"] {
+  --primary: #FF69B4;
+  --primary-light: #ffb6d3;
+  --primary-dark: #d4448a;
+  --bg: #fff0f5;
+  --card-bg: rgba(255,255,255,0.88);
+  --text: #4a1a2e;
+  --text-secondary: #7a4a5e;
+  --accent: #ffd700;
+  --border: rgba(255,105,180,0.2);
+  --shadow: 0 4px 24px rgba(255,105,180,0.12);
+}
+[data-theme="cinnamoroll"] {
+  --primary: #5BA4CF;
+  --primary-light: #a8d8f0;
+  --primary-dark: #3a7ca8;
+  --bg: #f0f7fc;
+  --card-bg: rgba(255,255,255,0.88);
+  --text: #1e3a4e;
+  --text-secondary: #4a6a7e;
+  --accent: #ffd700;
+  --border: rgba(91,164,207,0.2);
+  --shadow: 0 4px 24px rgba(91,164,207,0.12);
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { font-size:16px; -webkit-tap-highlight-color:transparent; }
+body {
+  font-family:var(--font);
+  background:var(--bg);
+  color:var(--text);
+  min-height:100vh;
+  min-height:100dvh;
+  padding-top:calc(var(--safe-top) + 12px);
+  padding-bottom:calc(var(--safe-bottom) + 24px);
+  padding-left:calc(var(--safe-left) + 12px);
+  padding-right:calc(var(--safe-right) + 12px);
+  transition:background 0.4s,color 0.4s;
+  -webkit-font-smoothing:antialiased;
+}
+.container { max-width:600px; margin:0 auto; }
+h1 {
+  text-align:center; font-size:1.5rem; font-weight:700;
+  padding:16px 0 8px; letter-spacing:0.04em;
+}
+h1 small { display:block; font-size:0.75rem; color:var(--text-secondary); font-weight:400; margin-top:4px; }
+
+/* Install Banner */
+.install-banner {
+  display:none;
+  background:var(--primary); color:#fff; border-radius:16px;
+  padding:10px 14px; margin-bottom:12px; font-size:0.82rem;
+  align-items:center; justify-content:space-between; gap:8px;
+  animation:slideDown 0.4s ease;
+}
+.install-banner.show { display:flex; }
+.install-banner button {
+  background:rgba(255,255,255,0.25); border:none; color:#fff;
+  border-radius:10px; padding:6px 12px; font-size:0.78rem; cursor:pointer;
+  white-space:nowrap; min-width:44px; min-height:44px;
+}
+@keyframes slideDown { from{transform:translateY(-20px);opacity:0} to{transform:translateY(0);opacity:1} }
+
+/* Theme Tabs */
+.theme-tabs {
+  display:flex; gap:6px; justify-content:center; margin-bottom:14px; flex-wrap:wrap;
+}
+.theme-tab {
+  padding:8px 16px; border-radius:20px; border:2px solid var(--border);
+  background:var(--card-bg); cursor:pointer; font-size:0.9rem;
+  transition:all 0.25s; min-height:44px; display:flex; align-items:center; gap:4px;
+  -webkit-tap-highlight-color:transparent; user-select:none;
+}
+.theme-tab.active {
+  background:var(--primary); color:#fff; border-color:var(--primary);
+  box-shadow:0 4px 16px rgba(107,63,160,0.25);
+}
+
+/* Card */
+.card {
+  background:var(--card-bg); border-radius:var(--radius); padding:18px;
+  margin-bottom:14px; box-shadow:var(--shadow);
+  border:1px solid var(--border);
+  backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px);
+  transition:all 0.3s;
+}
+
+/* Weather */
+.weather-main { display:flex; align-items:center; gap:16px; }
+.weather-temp { font-size:3.5rem; font-weight:300; line-height:1; }
+.weather-info { flex:1; }
+.weather-desc { font-size:1.1rem; font-weight:600; }
+.weather-detail { font-size:0.82rem; color:var(--text-secondary); margin-top:2px; }
+.weather-alerts { margin-top:12px; }
+.alert-item {
+  padding:8px 14px; border-radius:14px; margin-bottom:6px;
+  font-size:0.84rem; display:flex; align-items:center; gap:8px;
+  background:rgba(128,128,128,0.08);
+}
+.alert-item.warn { background:rgba(255,152,0,0.12); }
+.alert-item.danger { background:rgba(244,67,54,0.1); }
+.alert-item.info { background:rgba(33,150,243,0.08); }
+.forecast-row {
+  display:flex; gap:8px; margin-top:14px; overflow-x:auto;
+  padding-bottom:4px; -webkit-overflow-scrolling:touch;
+}
+.forecast-day {
+  flex:0 0 auto; text-align:center; padding:10px 14px;
+  border-radius:18px; background:rgba(128,128,128,0.06);
+  min-width:72px;
+}
+.forecast-day .day-label { font-size:0.72rem; color:var(--text-secondary); }
+.forecast-day .day-icon { font-size:1.6rem; margin:4px 0; }
+.forecast-day .day-temp { font-weight:700; font-size:0.92rem; }
+.forecast-day .day-low { color:var(--text-secondary); font-size:0.78rem; }
+
+/* Quote */
+.quote-card { text-align:center; }
+.quote-text { font-size:1.05rem; line-height:1.7; font-style:italic; }
+.quote-btn {
+  margin-top:10px; background:var(--primary); color:#fff; border:none;
+  border-radius:16px; padding:8px 20px; font-size:0.84rem; cursor:pointer;
+  min-height:44px; transition:opacity 0.2s;
+}
+.quote-btn:active { opacity:0.8; }
+
+/* Period */
+.period-inputs { display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin-bottom:12px; }
+.period-inputs label { font-size:0.84rem; }
+.period-inputs input, .period-inputs select {
+  border:2px solid var(--border); border-radius:12px; padding:8px 12px;
+  background:var(--card-bg); color:var(--text); font-size:0.9rem;
+  min-height:44px; font-family:var(--font);
+}
+.period-result { font-size:0.9rem; line-height:1.8; }
+.period-alert {
+  padding:10px 14px; border-radius:14px; margin-top:10px;
+  font-size:0.86rem; background:rgba(233,30,99,0.08);
+}
+
+/* Calorie */
+.cal-header { display:flex; justify-content:space-between; align-items:center; }
+.cal-count { font-size:2.2rem; font-weight:700; color:var(--primary); }
+.cal-btns { display:flex; gap:8px; margin-top:10px; }
+.cal-btns button {
+  flex:1; min-height:44px; border:none; border-radius:16px;
+  font-size:0.88rem; cursor:pointer; transition:opacity 0.2s;
+}
+.btn-primary { background:var(--primary); color:#fff; }
+.btn-outline { background:transparent; color:var(--primary); border:2px solid var(--primary); }
+
+/* Modal */
+.modal-overlay {
+  display:none; position:fixed; top:0;left:0;right:0;bottom:0;
+  background:rgba(0,0,0,0.4); z-index:100; align-items:flex-end;
+  justify-content:center;
+}
+.modal-overlay.show { display:flex; }
+.modal-panel {
+  background:var(--card-bg); border-radius:24px 24px 0 0; padding:20px;
+  width:100%; max-width:600px; animation:slideUp 0.3s ease;
+  padding-bottom:calc(20px + var(--safe-bottom));
+}
+@keyframes slideUp { from{transform:translateY(100%)} to{transform:translateY(0)} }
+.modal-panel h3 { margin-bottom:14px; text-align:center; }
+.modal-panel select, .modal-panel input {
+  width:100%; border:2px solid var(--border); border-radius:14px;
+  padding:10px 14px; font-size:0.95rem; margin-bottom:10px;
+  min-height:48px; background:var(--bg); color:var(--text); font-family:var(--font);
+}
+.modal-actions { display:flex; gap:8px; margin-top:4px; }
+.modal-actions button { flex:1; min-height:48px; border:none; border-radius:16px; font-size:0.95rem; cursor:pointer; }
+
+/* Todo */
+.todo-input-row { display:flex; gap:8px; margin-bottom:12px; }
+.todo-input-row input {
+  flex:1; border:2px solid var(--border); border-radius:14px;
+  padding:10px 14px; font-size:0.9rem; min-height:48px;
+  background:var(--card-bg); color:var(--text); font-family:var(--font);
+}
+.todo-input-row button {
+  min-height:48px; min-width:56px; background:var(--primary); color:#fff;
+  border:none; border-radius:14px; font-size:0.9rem; cursor:pointer;
+}
+.todo-item {
+  display:flex; align-items:center; gap:10px; padding:10px 6px;
+  border-bottom:1px solid var(--border); min-height:48px;
+}
+.todo-item input[type=checkbox] { width:22px; height:22px; accent-color:var(--primary); }
+.todo-item .todo-text { flex:1; font-size:0.92rem; }
+.todo-item .todo-text.done { text-decoration:line-through; color:var(--text-secondary); }
+.todo-del {
+  background:none; border:none; color:var(--danger); font-size:1.2rem;
+  cursor:pointer; min-width:44px; min-height:44px; border-radius:12px;
+  display:flex; align-items:center; justify-content:center;
+}
+</style>
+</head>
+<body data-theme="cinnamoroll">
+<div class="container">
+
+<!-- Install Banner -->
+<div class="install-banner" id="installBanner">
+  <span>📱 安装到主屏幕：点击分享按钮 ➕ 添加到主屏幕</span>
+  <button onclick="closeBanner()">✕</button>
+</div>
+
+<h1>小院的小窝 <small>💜 永远爱你</small></h1>
+
+<!-- Theme Tabs -->
+<div class="theme-tabs">
+  <button class="theme-tab" data-theme="kuromi" onclick="setTheme('kuromi')">🖤 库洛米</button>
+  <button class="theme-tab" data-theme="hellokitty" onclick="setTheme('hellokitty')">🎀 凯蒂猫</button>
+  <button class="theme-tab active" data-theme="cinnamoroll" onclick="setTheme('cinnamoroll')">🐶 玉桂狗</button>
+</div>
+
+<!-- Weather -->
+<div class="card" id="weatherCard">
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+    <strong style="font-size:1rem">📍 广州 · 实时天气</strong>
+    <span style="font-size:0.75rem;color:var(--text-secondary)" id="weatherTime"></span>
+  </div>
+  <div class="weather-main">
+    <div class="weather-temp" id="wTemp">--°</div>
+    <div class="weather-info">
+      <div class="weather-desc" id="wDesc">加载中...</div>
+      <div class="weather-detail" id="wDetail"></div>
+    </div>
+  </div>
+  <div class="weather-alerts" id="wAlerts"></div>
+  <div class="forecast-row" id="forecastRow"></div>
+</div>
+
+<!-- Quote -->
+<div class="card quote-card">
+  <div class="quote-text" id="quoteText"></div>
+  <button class="quote-btn" onclick="refreshQuote()">💫 换一句</button>
+</div>
+
+<!-- Period -->
+<div class="card">
+  <strong style="font-size:1rem">🌸 例假小管家</strong>
+  <div class="period-inputs" style="margin-top:10px">
+    <label>上次例假：</label>
+    <input type="date" id="periodDate" onchange="calcPeriod()">
+    <label>周期：</label>
+    <select id="periodCycle" onchange="calcPeriod()">
+    </select>
+  </div>
+  <div class="period-result" id="periodResult"></div>
+  <div class="period-alert" id="periodAlert"></div>
+</div>
+
+<!-- Calorie -->
+<div class="card">
+  <div class="cal-header">
+    <div>
+      <div style="font-size:0.84rem;color:var(--text-secondary)">今日热量摄入</div>
+      <div class="cal-count" id="calToday">0 <small style="font-size:0.8rem">kcal</small></div>
+    </div>
+  </div>
+  <div class="cal-btns">
+    <button class="btn-primary" onclick="openCalModal()">🍽 记录一餐</button>
+    <button class="btn-outline" onclick="resetCal()">🔄 重置今日</button>
+  </div>
+</div>
+
+<!-- Todo -->
+<div class="card">
+  <strong style="font-size:1rem">📋 待办小事</strong>
+  <div class="todo-input-row" style="margin-top:10px">
+    <input type="text" id="todoInput" placeholder="写下一个待办..." onkeydown="if(event.key==='Enter')addTodo()">
+    <button onclick="addTodo()">添加</button>
+  </div>
+  <div id="todoList"></div>
+</div>
+
+</div>
+
+<!-- Calorie Modal -->
+<div class="modal-overlay" id="calModal" onclick="if(event.target===this)closeCalModal()">
+  <div class="modal-panel">
+    <h3>🍽 记录一餐</h3>
+    <select id="calMealType">
+      <option value="早餐">🌅 早餐</option>
+      <option value="午餐">☀️ 午餐</option>
+      <option value="晚餐">🌙 晚餐</option>
+      <option value="加餐">🍪 加餐</option>
+    </select>
+    <input type="number" id="calInput" placeholder="热量 (kcal)" min="0" inputmode="numeric">
+    <div class="modal-actions">
+      <button class="btn-outline" onclick="closeCalModal()">取消</button>
+      <button class="btn-primary" onclick="saveCal()">保存</button>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ========== THEME ========== */
+function setTheme(t) {
+  document.body.setAttribute('data-theme', t);
+  document.querySelectorAll('.theme-tab').forEach(b => b.classList.toggle('active', b.dataset.theme === t));
+  const colors = {kuromi:'#6B3FA0',hellokitty:'#FF69B4',cinnamoroll:'#5BA4CF'};
+  document.querySelector('meta[name=theme-color]').content = colors[t];
+  try { localStorage.setItem('xy_theme', t); } catch(e) {}
+}
+try {
+  const saved = localStorage.getItem('xy_theme');
+  if (saved && ['kuromi','hellokitty','cinnamoroll'].includes(saved)) setTheme(saved);
+} catch(e) {}
+
+/* ========== WEATHER ========== */
+const weatherCodes = {
+  0:['☀️','晴天'],1:['🌤','少云'],2:['⛅','多云'],3:['☁️','阴天'],
+  45:['🌫','雾'],48:['🌫','冻雾'],
+  51:['🌦','小毛毛雨'],53:['🌦','毛毛雨'],55:['🌧','大毛毛雨'],
+  56:['🌧','冻毛毛雨'],57:['🌧','冻毛毛雨'],
+  61:['🌧','小雨'],63:['🌧','中雨'],65:['🌧','大雨'],
+  66:['🌨','冻雨'],67:['🌨','冻雨'],
+  71:['❄️','小雪'],73:['❄️','中雪'],75:['❄️','大雪'],
+  77:['🌨','雪粒'],
+  80:['🌦','阵雨'],81:['🌧','中阵雨'],82:['🌧','大阵雨'],
+  85:['🌨','小阵雪'],86:['🌨','大阵雪'],
+  95:['⛈','雷暴'],96:['⛈','雷暴+小冰雹'],99:['⛈','雷暴+大冰雹']
+};
+function weatherCodeToEmoji(c) {
+  const e = weatherCodes[c];
+  if (c===0) return '☀️'; if (c<=3) return '⛅'; if (c===45||c===48) return '🌫';
+  if (c<=57) return '🌧'; if (c<=67) return '🌧'; if (c<=77) return '❄️';
+  if (c<=82) return '🌧'; if (c<=86) return '🌨'; return '⛈';
+}
+function windSpeedToLevel(ms) {
+  if (ms<0.3) return '0级 无风'; if (ms<1.6) return '1级 软风'; if (ms<3.4) return '2级 轻风';
+  if (ms<5.5) return '3级 微风'; if (ms<8.0) return '4级 和风'; if (ms<10.8) return '5级 清风';
+  if (ms<13.9) return '6级 强风'; if (ms<17.2) return '7级 疾风'; if (ms<20.8) return '8级 大风';
+  if (ms<24.5) return '9级 烈风'; if (ms<28.5) return '10级 狂风'; if (ms<32.7) return '11级 暴风';
+  return '12级 飓风';
+}
+function parseWeather(d) {
+  const cw = d.current_weather;
+  const daily = d.daily;
+  const hourly = d.hourly;
+  const now = new Date(); const h = now.getHours();
+  const humidity = (hourly && hourly.relativehumidity_2m && hourly.relativehumidity_2m.length>0)
+    ? hourly.relativehumidity_2m[Math.min(h, hourly.relativehumidity_2m.length-1)] : '--';
+  const wc = cw.weathercode;
+  const wInfo = weatherCodes[wc] || ['🌈','未知'];
+  document.getElementById('wTemp').textContent = Math.round(cw.temperature) + '°';
+  document.getElementById('wDesc').textContent = wInfo[1];
+  document.getElementById('weatherTime').textContent =
+    '更新于 ' + new Date().toLocaleTimeString('zh-CN',{hour:'2-digit',minute:'2-digit'});
+  document.getElementById('wDetail').innerHTML =
+    '体感 ' + Math.round(cw.temperature) + '° &nbsp;湿度 ' + humidity + '% &nbsp;' + windSpeedToLevel(cw.windspeed);
+
+  // Alerts
+  let alerts = '';
+  // Compare yesterday
+  const todayMax = daily.temperature_2m_max[1], todayMin = daily.temperature_2m_min[1];
+  const yesterdayMax = daily.temperature_2m_max[0], yesterdayMin = daily.temperature_2m_min[0];
+  const diff = Math.round((todayMax + todayMin)/2 - (yesterdayMax + yesterdayMin)/2);
+  if (diff > 3) alerts += '<div class="alert-item warn">📈 今天比昨天暖了' + Math.abs(diff) + '°C，可以穿薄一点哦</div>';
+  else if (diff < -3) alerts += '<div class="alert-item info">📉 今天比昨天冷了' + Math.abs(diff) + '°C，注意加衣保暖</div>';
+  else alerts += '<div class="alert-item">🌡 今天和昨天温度差不多，保持舒适穿搭就好</div>';
+  // Tomorrow rain
+  const tomorrowPrecip = daily.precipitation_probability_max[2] || 0;
+  if (tomorrowPrecip > 50) alerts += '<div class="alert-item warn">🌂 明天降水概率' + tomorrowPrecip + '%，记得带伞哦</div>';
+  // Clothing
+  const t = cw.temperature;
+  if (t < 10) alerts += '<div class="alert-item info">🧥 降温啦，穿上厚外套或羽绒服吧</div>';
+  else if (t < 18) alerts += '<div class="alert-item info">🧣 微凉，穿件薄外套或卫衣刚好</div>';
+  else if (t < 26) alerts += '<div class="alert-item">👕 温度舒适，长袖T恤或衬衫就够啦</div>';
+  else if (t < 32) alerts += '<div class="alert-item">👗 夏天来啦，短袖短裤安排上</div>';
+  else alerts += '<div class="alert-item warn">🔥 高温预警！轻薄透气最重要</div>';
+  // UV
+  if (wc===0 && t>28) alerts += '<div class="alert-item danger">☀️ 大晴天又高温，出门记得涂防晒霜！</div>';
+  // Cold risk
+  if (Math.abs(diff)>5 || (humidity!=='--' && humidity>80 && t<20))
+    alerts += '<div class="alert-item warn">🤧 温差大/湿度高，小心感冒，多喝热水</div>';
+
+  document.getElementById('wAlerts').innerHTML = alerts;
+
+  // Forecast cards
+  let fcHtml = '';
+  const weekdays = ['日','一','二','三','四','五','六'];
+  for (let i=0; i<3; i++) {
+    const di = i+1;
+    const d = new Date(now); d.setDate(d.getDate()+i);
+    const label = i===0 ? '今天' : (i===1 ? '明天' : '后天');
+    const dayName = weekdays[d.getDay()];
+    fcHtml += '<div class="forecast-day"><div class="day-label">' + label + ' ' + dayName + '</div>';
+    fcHtml += '<div class="day-icon">' + weatherCodeToEmoji(daily.weathercode[di]) + '</div>';
+    fcHtml += '<div class="day-temp">' + Math.round(daily.temperature_2m_max[di]) + '°</div>';
+    fcHtml += '<div class="day-low">' + Math.round(daily.temperature_2m_min[di]) + '°</div></div>';
+  }
+  document.getElementById('forecastRow').innerHTML = fcHtml;
+}
+
+async function fetchWeather() {
+  const card = document.getElementById('weatherCard');
+  try {
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 5000);
+    const url = 'https://api.open-meteo.com/v1/forecast?latitude=23.1291&longitude=113.2644&current_weather=true&daily=weathercode,temperature_2m_max,temperature_2m_min,precipitation_probability_max&hourly=relativehumidity_2m&timezone=Asia/Shanghai&past_days=1&forecast_days=3';
+    const res = await fetch(url, {signal:controller.signal});
+    clearTimeout(timeout);
+    if (!res.ok) throw new Error('HTTP '+res.status);
+    const data = await res.json();
+    parseWeather(data);
+    try { localStorage.setItem('xy_weather_cache', JSON.stringify(data)); } catch(e) {}
+  } catch(e) {
+    console.warn('Weather fetch failed:', e);
+    try {
+      const cached = localStorage.getItem('xy_weather_cache');
+      if (cached) { parseWeather(JSON.parse(cached)); return; }
+    } catch(e2) {}
+    document.getElementById('wTemp').textContent = '😢';
+    document.getElementById('wDesc').textContent = '天气加载失败，下拉刷新试试';
+  }
+}
+
+/* ========== QUOTES ========== */
+const quotes = [
+  '你是我见过最温柔的人，像春天第一缕风。','小院，光是你的名字，就能让我开心一整天。',
+  '生活可能不完美，但有你在就是最好的版本。','今天也要记得笑呀，你笑起来最好看了。',
+  '累了就歇一歇，我的小院不需要一直那么坚强。','每一天都值得被温柔对待，尤其是你。',
+  '你值得世间所有美好，包括我全部的耐心。','小院，你是我漫长岁月里的惊喜。',
+  '别太焦虑，花会开，风会来，一切都会好的。','晚安这个词，对你说了就是最美的情话。',
+  '你就是我的今日份开心。','照顾好自己，因为你是我最珍贵的宝物。',
+  '月亮不会奔你而来，但我会。','再冷的冬天，想到你就暖了。',
+  '你不必成为谁的太阳，做自己的星星就好。','今天辛苦啦，小院值得一个大大的拥抱。',
+  '你的存在本身，就是一件很美好的事情。','去爱，去生活，去感受——我陪你。',
+  '春风十里，夏阳满山，秋雨淅淅，冬雪皑皑，都不如你。','看到一朵花好看，就想起你了。',
+  '小院，这个世界因为你而变甜了一点点。','愿你吃嘛嘛香，睡嘛嘛棒，天天没烦恼。',
+  '你生气的时候也很可爱，但我还是希望你开开心心的。','没有一朵云应该被责备，你也一样。',
+  '下雨天是天空在帮你浇花，阴天是太阳在睡懒觉。','每天醒来能看到你消息，就是我最好的早晨。',
+  '别怕，不管什么事，我都在。','愿你的梦里，有软软的云和甜甜的风。',
+  '我们慢慢来，日子很长，爱也很长。','你是我最想留住的幸运。',
+  '人生的意义不在于拿到好牌，而在于打好烂牌——但你已经是我的王牌了。'
+];
+function getDailyQuote() {
+  const now = new Date();
+  const idx = (now.getFullYear()*10000 + (now.getMonth()+1)*100 + now.getDate()) % quotes.length;
+  return quotes[idx];
+}
+function refreshQuote() {
+  const idx = Math.floor(Math.random() * quotes.length);
+  document.getElementById('quoteText').textContent = '「' + quotes[idx] + '」';
+}
+document.getElementById('quoteText').textContent = '「' + getDailyQuote() + '」';
+
+/* ========== PERIOD ========== */
+function buildCycleSelect() {
+  const sel = document.getElementById('periodCycle');
+  sel.innerHTML = '';
+  for (let i=21; i<=35; i++) { const o=document.createElement('option'); o.value=i; o.textContent=i+'天'; if(i===28) o.selected=true; sel.appendChild(o); }
+}
+buildCycleSelect();
+function calcPeriod() {
+  const dateVal = document.getElementById('periodDate').value;
+  const cycle = parseInt(document.getElementById('periodCycle').value) || 28;
+  if (!dateVal) {
+    document.getElementById('periodResult').innerHTML = '<span style="color:var(--text-secondary)">请先选择上次例假日期</span>';
+    document.getElementById('periodAlert').innerHTML = '';
+    return;
+  }
+  try { localStorage.setItem('xy_period_date', dateVal); localStorage.setItem('xy_period_cycle', cycle); } catch(e) {}
+  const lastDate = new Date(dateVal + 'T00:00:00');
+  const nextDate = new Date(lastDate); nextDate.setDate(nextDate.getDate() + cycle);
+  const ovuDate = new Date(nextDate); ovuDate.setDate(ovuDate.getDate() - 14);
+  const fertileStart = new Date(ovuDate); fertileStart.setDate(fertileStart.getDate() - 3);
+  const fertileEnd = new Date(ovuDate); fertileEnd.setDate(fertileEnd.getDate() + 3);
+  const now = new Date(); now.setHours(0,0,0,0);
+  const diffDays = Math.ceil((nextDate - now) / 86400000);
+  const fmt = d => d.toLocaleDateString('zh-CN',{month:'numeric',day:'numeric'});
+  document.getElementById('periodResult').innerHTML =
+    '<div>📅 下一次例假：<strong>' + fmt(nextDate) + '</strong>（还有 <strong>' + diffDays + '</strong> 天）</div>' +
+    '<div>🥚 排卵期：' + fmt(ovuDate) + '</div>' +
+    '<div>💕 易孕期：' + fmt(fertileStart) + ' ~ ' + fmt(fertileEnd) + '</div>';
+  let alertHtml = '';
+  if (diffDays < 0) alertHtml = '⚠️ 例假已推迟 ' + Math.abs(diffDays) + ' 天，注意观察身体变化哦';
+  else if (diffDays === 0) alertHtml = '🔴 今天可能来例假哦，记得准备好卫生用品～';
+  else if (diffDays <= 2) alertHtml = '⏰ 例假快到了（还剩' + diffDays + '天），提前备好暖宝宝和红糖水吧';
+  else if (diffDays <= 5) alertHtml = '🌺 例假倒计时 ' + diffDays + ' 天，少吃生冷，注意保暖～';
+  else if (diffDays <= 14) alertHtml = '🥚 排卵期附近，身体状态会比较好哦';
+  else if (diffDays <= 21) alertHtml = '🌸 一切正常，好好照顾自己';
+  else alertHtml = '✨ 新周期刚开始，元气满满！';
+  document.getElementById('periodAlert').innerHTML = alertHtml;
+}
+try {
+  const savedDate = localStorage.getItem('xy_period_date');
+  const savedCycle = localStorage.getItem('xy_period_cycle');
+  if (savedDate) { document.getElementById('periodDate').value = savedDate; }
+  if (savedCycle) { document.getElementById('periodCycle').value = savedCycle; }
+  if (savedDate) calcPeriod();
+} catch(e) {}
+
+/* ========== CALORIE ========== */
+function getCalKey() { const d=new Date(); return 'xy_cal_' + d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0'); }
+function loadCal() {
+  try { return JSON.parse(localStorage.getItem(getCalKey())) || []; } catch(e) { return []; }
+}
+function saveCalLog(arr) { try { localStorage.setItem(getCalKey(), JSON.stringify(arr)); } catch(e) {} }
+function renderCal() {
+  const log = loadCal();
+  const total = log.reduce((s,e) => s + (e.kcal||0), 0);
+  document.getElementById('calToday').innerHTML = total + ' <small style="font-size:0.8rem">kcal</small>';
+}
+function openCalModal() { document.getElementById('calModal').classList.add('show'); document.getElementById('calInput').value=''; document.getElementById('calInput').focus(); }
+function closeCalModal() { document.getElementById('calModal').classList.remove('show'); }
+function saveCal() {
+  const kcal = parseInt(document.getElementById('calInput').value) || 0;
+  if (kcal <= 0) return;
+  const type = document.getElementById('calMealType').value;
+  const log = loadCal();
+  log.push({type, kcal, time:new Date().toLocaleTimeString('zh-CN',{hour:'2-digit',minute:'2-digit'})});
+  saveCalLog(log); renderCal(); closeCalModal();
+}
+function resetCal() { saveCalLog([]); renderCal(); }
+renderCal();
+
+/* ========== TODO ========== */
+let todos = [];
+function loadTodos() { try { const d=localStorage.getItem('xy_todos'); if(d) todos=JSON.parse(d); } catch(e) { todos=[]; } if(todos.length===0) { todos=[{text:'买花🌷',done:false},{text:'提醒小院喝水',done:false},{text:'晚安故事',done:false}]; } }
+function saveTodos() { try { localStorage.setItem('xy_todos',JSON.stringify(todos)); } catch(e) {} }
+function renderTodos() {
+  const el = document.getElementById('todoList');
+  el.innerHTML = todos.map((t,i) =>
+    '<div class="todo-item">' +
+    '<input type="checkbox" ' + (t.done?'checked':'') + ' onchange="toggleTodo('+i+')">' +
+    '<span class="todo-text' + (t.done?' done':'') + '">' + t.text + '</span>' +
+    '<button class="todo-del" onclick="delTodo('+i+')">🗑</button></div>'
+  ).join('');
+}
+function addTodo() {
+  const inp = document.getElementById('todoInput');
+  const text = inp.value.trim();
+  if (!text) return;
+  todos.push({text, done:false});
+  saveTodos(); renderTodos(); inp.value = '';
+}
+function toggleTodo(i) { todos[i].done = !todos[i].done; saveTodos(); renderTodos(); }
+function delTodo(i) { todos.splice(i,1); saveTodos(); renderTodos(); }
+loadTodos(); renderTodos();
+
+/* ========== INSTALL BANNER ========== */
+(function() {
+  const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+  const isStandalone = window.matchMedia('(display-mode: standalone)').matches || navigator.standalone;
+  if (isSafari && !isStandalone && !sessionStorage.getItem('xy_banner_closed')) {
+    document.getElementById('installBanner').classList.add('show');
+  }
+})();
+function closeBanner() {
+  document.getElementById('installBanner').classList.remove('show');
+  try { sessionStorage.setItem('xy_banner_closed','1'); } catch(e) {}
+}
+
+/* ========== ICONS ========== */
+(function() {
+  function genIcon(size) {
+    const c = document.createElement('canvas'); c.width=size; c.height=size;
+    const ctx = c.getContext('2d');
+    const grad = ctx.createLinearGradient(0,0,size,size);
+    grad.addColorStop(0,'#a8d8f0'); grad.addColorStop(1,'#5BA4CF');
+    const r = size*0.18; ctx.fillStyle = grad; ctx.beginPath(); ctx.moveTo(r,0); ctx.lineTo(size-r,0); ctx.arcTo(size,0,size,r,r); ctx.lineTo(size,size-r); ctx.arcTo(size,size,size-r,size,r); ctx.lineTo(r,size); ctx.arcTo(0,size,0,size-r,r); ctx.lineTo(0,r); ctx.arcTo(0,0,r,0,r); ctx.closePath(); ctx.fill();
+    ctx.fillStyle = '#fff'; ctx.font = (size*0.45) + 'px sans-serif'; ctx.textAlign='center'; ctx.textBaseline='middle';
+    ctx.fillText('🐶', size/2, size/2);
+    return c.toDataURL('image/png');
+  }
+  try {
+    const link192 = document.createElement('link'); link192.rel='icon'; link192.sizes='192x192'; link192.href=genIcon(192); document.head.appendChild(link192);
+    const link512 = document.createElement('link'); link512.rel='icon'; link512.sizes='512x512'; link512.href=genIcon(512); document.head.appendChild(link512);
+    try { localStorage.setItem('xy_icon192', genIcon(192)); localStorage.setItem('xy_icon512', genIcon(512)); } catch(e) {}
+  } catch(e) {}
+})();
+
+/* ========== INIT ========== */
+fetchWeather();
+setInterval(fetchWeather, 30*60*1000);
+
+/* ========== SW ========== */
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/xiaoyuan/sw.js', {scope:'/xiaoyuan/'}).catch(() => {});
+}
+</script>
+</body>
+</html>
